@@ -1,0 +1,127 @@
+/* Basic Reset for Consistency */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Navigation Bar Styles */
+#navbar {
+    position: fixed; /* Stays fixed at top */
+    top: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8); /* Semi-transparent initially */
+    color: white;
+    z-index: 1000; /* Ensures it stays above content */
+    transition: background 0.3s ease; /* Smooth transition for scroll change */
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.logo {
+    font-size: 1.5rem;
+}
+
+#nav-links {
+    list-style: none;
+    display: flex;
+}
+
+#nav-links li {
+    margin-left: 2rem;
+}
+
+#nav-links a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease; /* Smooth hover transition */
+}
+
+#nav-links a:hover {
+    color: #ffcc00; /* Changes color on hover */
+}
+
+/* Hamburger Menu (Hidden on Desktop) */
+.hamburger {
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: white;
+    margin: 3px 0;
+    transition: 0.3s;
+}
+
+/* Scrolled State (Added by JS) */
+#navbar.scrolled {
+    background: rgba(0, 0, 0, 1); /* Solid background when scrolled */
+}
+
+/* Mobile Menu Toggle (Shown when JS adds 'active') */
+#nav-links.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: black;
+    padding: 1rem;
+}
+
+/* Page Sections */
+section {
+    height: 100vh; /* Full viewport height for scrolling */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    scroll-margin-top: 70px; /* Prevents nav from covering section anchors */
+}
+
+#hero {
+    background: #f4f4f4;
+}
+
+#about {
+    background: #b67d7d;
+}
+
+#services {
+    background: #7bb4aa;
+}
+
+#contact {
+    background: #ca8ec6;
+}
+
+/* Responsiveness: Mobile Styles (Breakpoint at 768px) */
+@media (max-width: 768px) {
+    #nav-links {
+        display: none; /* Hide links on mobile */
+    }
+    .hamburger {
+        display: flex; /* Show hamburger on mobile */
+    }
+    #nav-links.active {
+        display: flex; /* Show links when toggled */
+    }
+}
